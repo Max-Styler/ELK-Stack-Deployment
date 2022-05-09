@@ -167,14 +167,14 @@ SSH into the control node and follow the steps below:
 
 - Copy the [install-elk.yml](Ansible/install-elk.yml) file to the ansible control node. (If you want [filebeat](Ansible/filebeat-config.yml) and/or [metricbeat](Ansible/metricbeat-config.yml) make sure to copy those files as well.)
 
-- Using my files:
+- Using files provided in this repository:
 
 ```bash
 mkdir Elk-Deployment
-git clone https://github.com/Maximum27/ELK-Stack-Deployment.git
+git clone https://github.com/Maximum27/Project1.git
 cd /etc/ansible
-cp Elk-Deployment/ELK-Stack-Deployment/Ansible/install-elk.yml
-cp Elk-Deployment/ELK-Stack-Deployment/Ansible/host.yml
+cp Elk-Deployment/Project1/Ansible/install-elk.yml
+cp Elk-Deployment/Project1/Ansible/host.yml
 # make sure to copy the filebeat and/or metricbeat files if you want those as well.
 # Just change install-elk.yml to either metricbeat-config.yml or filebeat-config.yml.
 ```
@@ -193,7 +193,7 @@ curl -L -O https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557c
 ```yml
 output.elasticsearch:
 # Change the hosts IP address to the IP address of your ELK server keep port 9200
-hosts: ["10.2.0.4:9200"]
+hosts: ["10.1.0.4:9200"]
 username: "elastic"
 password: "changeme"
 ```
@@ -202,7 +202,7 @@ password: "changeme"
 
 ```yml
 setup.kibana:
-host: "10.2.0.4:5601"
+host: "10.1.0.4:5601"
 ```
 
 - Update the hosts.yml file to include the IP addresses for the webservers and the ELK server.
@@ -238,4 +238,5 @@ docker container list -a
 docker start elk
 ```
 
-![Kibana_Dashboard](Images/KibanaDashboard.png)
+- Kibana Dashboard
+  ![Kibana_Dashboard](Images/KibanaDashboard.png)
